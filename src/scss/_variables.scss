@@ -1,0 +1,218 @@
+// Colores
+$primary: #1976d2;
+$secondary: #26a69a;
+$accent: #9c27b0;
+$error: #f44336;
+$warning: #ff9800;
+$info: #2196f3;
+$success: #4caf50;
+
+// Colores de texto
+$text-primary: rgba(0, 0, 0, 0.87);
+$text-secondary: rgba(0, 0, 0, 0.6);
+$text-disabled: rgba(0, 0, 0, 0.38);
+
+// Colores de fondo
+$background: #f5f5f5;
+$surface: #ffffff;
+$surface-variant: #f5f5f5;
+
+// Bordes
+$border-radius-root: 4px;
+$border-radius-sm: 2px;
+$border-radius-md: 4px;
+$border-radius-lg: 8px;
+$border-radius-xl: 16px;
+$border-radius-pill: 9999px;
+
+// Tipografía
+$font-family: 'Outfit', sans-serif;
+$font-size-root: 16px;
+$line-height-root: 1.5;
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// Breakpoints
+$breakpoint-xs: 0;
+$breakpoint-sm: 600px;
+$breakpoint-md: 960px;
+$breakpoint-lg: 1280px;
+$breakpoint-xl: 1920px;
+
+// Espaciado
+$spacer: 4px;
+$spacers: (
+  0: 0,
+  1: $spacer * 1,
+  2: $spacer * 2,
+  3: $spacer * 4,
+  4: $spacer * 6,
+  5: $spacer * 8,
+  6: $spacer * 12,
+  7: $spacer * 16,
+  8: $spacer * 24,
+  9: $spacer * 32,
+  10: $spacer * 40,
+);
+
+// Sombras
+$shadow-key-umbra-opacity: 0.2;
+$shadow-key-penumbra-opacity: 0.14;
+$shadow-ambient-shadow-opacity: 0.12;
+
+$box-shadow-0: 0 0 0 0 rgba(0, 0, 0, $shadow-key-umbra-opacity * 2), 0 0 0 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0 0 0 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+$box-shadow-1: 0 2px 1px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0 1px 1px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0 1px 3px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+$box-shadow-2: 0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+$box-shadow-3: 0 3px 3px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0 3px 4px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0 1px 8px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+$box-shadow-4: 0 2px 4px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0 4px 5px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0 1px 10px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+$box-shadow-5: 0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0 5px 8px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0 1px 14px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+
+// Transiciones
+$transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+$transition-slow: 0.6s cubic-bezier(0.25, 0.8, 0.5, 1);
+$transition-fast: 0.15s cubic-bezier(0.25, 0.8, 0.5, 1);
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Tamaños de contenedor
+$container-max-widths: (
+  'sm': 540px,
+  'md': 720px,
+  'lg': 960px,
+  'xl': 1140px,
+  'xxl': 1320px
+);
+
+// Variables para el tema oscuro
+$dark-theme: (
+  'background': #121212,
+  'surface': #1e1e1e,
+  'surface-variant': #2d2d2d,
+  'text-primary': rgba(255, 255, 255, 0.87),
+  'text-secondary': rgba(255, 255, 255, 0.6),
+  'text-disabled': rgba(255, 255, 255, 0.38),
+);
+
+// Variables para el tema claro
+$light-theme: (
+  'background': #f5f5f5,
+  'surface': #ffffff,
+  'surface-variant': #f5f5f5,
+  'text-primary': rgba(0, 0, 0, 0.87),
+  'text-secondary': rgba(0, 0, 0, 0.6),
+  'text-disabled': rgba(0, 0, 0, 0.38),
+);
+
+// Variables de animación
+$animation-duration: 0.3s;
+$animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+$animation-delay: 0s;
+$animation-iteration-count: 1;
+$animation-direction: normal;
+$animation-fill-mode: both;
+
+// Variables de borde
+$border-radius-root: 4px;
+$border-radius-sm: 2px;
+$border-radius-md: 4px;
+$border-radius-lg: 8px;
+$border-radius-xl: 16px;
+$border-radius-pill: 9999px;
+$border-width: 1px;
+$border-style: solid;
+$border-color: rgba(0, 0, 0, 0.12);
+
+// Variables de tipografía
+$typography: (
+  'h1': (
+    'size': 6rem,
+    'weight': 300,
+    'line-height': 1.167,
+    'letter-spacing': -0.01562em,
+  ),
+  'h2': (
+    'size': 3.75rem,
+    'weight': 300,
+    'line-height': 1.2,
+    'letter-spacing': -0.00833em,
+  ),
+  'h3': (
+    'size': 3rem,
+    'weight': 400,
+    'line-height': 1.167,
+    'letter-spacing': 0em,
+  ),
+  'h4': (
+    'size': 2.125rem,
+    'weight': 400,
+    'line-height': 1.235,
+    'letter-spacing': 0.00735em,
+  ),
+  'h5': (
+    'size': 1.5rem,
+    'weight': 400,
+    'line-height': 1.334,
+    'letter-spacing': 0em,
+  ),
+  'h6': (
+    'size': 1.25rem,
+    'weight': 500,
+    'line-height': 1.6,
+    'letter-spacing': 0.0075em,
+  ),
+  'subtitle-1': (
+    'size': 1rem,
+    'weight': 400,
+    'line-height': 1.75,
+    'letter-spacing': 0.00938em,
+  ),
+  'subtitle-2': (
+    'size': 0.875rem,
+    'weight': 500,
+    'line-height': 1.57,
+    'letter-spacing': 0.00714em,
+  ),
+  'body-1': (
+    'size': 1rem,
+    'weight': 400,
+    'line-height': 1.5,
+    'letter-spacing': 0.00938em,
+  ),
+  'body-2': (
+    'size': 0.875rem,
+    'weight': 400,
+    'line-height': 1.43,
+    'letter-spacing': 0.01071em,
+  ),
+  'button': (
+    'size': 0.875rem,
+    'weight': 500,
+    'line-height': 1.75,
+    'letter-spacing': 0.02857em,
+    'text-transform': uppercase,
+  ),
+  'caption': (
+    'size': 0.75rem,
+    'weight': 400,
+    'line-height': 1.66,
+    'letter-spacing': 0.03333em,
+  ),
+  'overline': (
+    'size': 0.75rem,
+    'weight': 500,
+    'line-height': 2.66,
+    'letter-spacing': 0.08333em,
+    'text-transform': uppercase,
+  ),
+);

@@ -1,0 +1,249 @@
+// Mixin para crear variantes de botones
+@mixin button-variant($color, $text-color: #fff) {
+  background-color: $color;
+  color: $text-color;
+  
+  &:hover:not(:disabled) {
+    background-color: darken($color, 10%);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: darken($color, 15%);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  &.v-btn--outlined {
+    background-color: transparent;
+    color: $color;
+    border: 1px solid $color;
+    
+    &:hover:not(:disabled) {
+      background-color: rgba($color, 0.08);
+    }
+  }
+  
+  &.v-btn--text {
+    background-color: transparent;
+    color: $color;
+    
+    &:hover:not(:disabled) {
+      background-color: rgba($color, 0.08);
+    }
+  }
+}
+
+// Mixin para crear tarjetas
+@mixin card($elevation: 2, $hover-elevation: 4) {
+  border-radius: $border-radius-root;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  @if $elevation == 0 {
+    box-shadow: $box-shadow-0;
+  } @else if $elevation == 1 {
+    box-shadow: $box-shadow-1;
+  } @else if $elevation == 2 {
+    box-shadow: $box-shadow-2;
+  } @else if $elevation == 3 {
+    box-shadow: $box-shadow-3;
+  } @else if $elevation == 4 {
+    box-shadow: $box-shadow-4;
+  } @else if $elevation == 5 {
+    box-shadow: $box-shadow-5;
+  }
+  
+  &:hover {
+    @if $hover-elevation == 0 {
+      box-shadow: $box-shadow-0;
+    } @else if $hover-elevation == 1 {
+      box-shadow: $box-shadow-1;
+    } @else if $hover-elevation == 2 {
+      box-shadow: $box-shadow-2;
+    } @else if $hover-elevation == 3 {
+      box-shadow: $box-shadow-3;
+    } @else if $hover-elevation == 4 {
+      box-shadow: $box-shadow-4;
+    } @else if $hover-elevation == 5 {
+      box-shadow: $box-shadow-5;
+    }
+    
+    transform: translateY(-2px);
+  }
+}
+
+// Mixin para crear animaciones de entrada
+@mixin fade-in($duration: 0.3s, $delay: 0s) {
+  opacity: 0;
+  animation: fadeIn $duration ease-out $delay forwards;
+  
+  @keyframes fadeIn {
+    from { 
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Mixin para crear un contenedor responsivo
+@mixin container($max-width: map-get($container-max-widths, 'xl'), $padding-x: 16px) {
+  width: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $padding-x;
+  padding-right: $padding-x;
+  
+  @media (max-width: $breakpoint-sm) {
+    padding-left: $padding-x / 2;
+    padding-right: $padding-x / 2;
+  }
+}
+
+// Mixin para crear un grid responsivo
+@mixin grid($columns, $gap: 16px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+  
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Mixin para crear un flexbox centrado
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Mixin para crear un texto con elipsis
+@mixin text-ellipsis($lines: 1) {
+  @if $lines == 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// Mixin para crear un fondo con gradiente
+@mixin gradient($start-color, $end-color, $direction: to right) {
+  background: $start-color;
+  background: linear-gradient($direction, $start-color, $end-color);
+}
+
+// Mixin para crear un efecto de vidrio esmerilado (glassmorfismo)
+@mixin glass($blur: 10px, $opacity: 0.7, $color: #fff) {
+  background: rgba($color, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba($color, 0.2);
+}
+
+// Mixin para crear un botón con icono
+@mixin icon-button($size: 40px, $icon-size: 24px, $color: currentColor) {
+  @include flex-center;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  color: $color;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  
+  .v-icon {
+    font-size: $icon-size;
+  }
+  
+  &:hover:not(:disabled) {
+    background: rgba($color, 0.1);
+  }
+  
+  &:active:not(:disabled) {
+    background: rgba($color, 0.2);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Mixin para crear un contenedor con relación de aspecto
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  width: 100%;
+  padding-top: ($height / $width) * 100%;
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Mixin para crear un tooltip personalizado
+@mixin tooltip($position: top, $bg-color: #333, $text-color: #fff) {
+  position: relative;
+  
+  &::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    background: $bg-color;
+    color: $text-color;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 1000;
+    
+    @if $position == top {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+    } @else if $position == right {
+      left: 100%;
+      top: 50%;
+      transform: translateX(8px) translateY(-50%);
+    } @else if $position == bottom {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+    } @else if $position == left {
+      right: 100%;
+      top: 50%;
+      transform: translateX(-8px) translateY(-50%);
+    }
+  }
+  
+  &:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

@@ -1,0 +1,281 @@
+// Importar fuentes
+@import url('https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// Importar estilos de Vuetify
+@import 'vuetify/styles';
+
+// Importar variables y mixins
+@import 'variables';
+@import 'mixins';
+
+// Variables CSS personalizadas
+:root {
+  --font-family: #{$font-family};
+  
+  // Colores del tema
+  --v-theme-primary: #{$primary};
+  --v-theme-secondary: #{$secondary};
+  --v-theme-accent: #{$accent};
+  --v-theme-error: #{$error};
+  --v-theme-warning: #{$warning};
+  --v-theme-info: #{$info};
+  --v-theme-success: #{$success};
+  
+  // Tipografía
+  @each $name, $props in $typography {
+    --v-typography-#{$name}-font-size: #{map-get($props, 'size')};
+    --v-typography-#{$name}-font-weight: #{map-get($props, 'weight')};
+    --v-typography-#{$name}-line-height: #{map-get($props, 'line-height')};
+    @if map-has-key($props, 'letter-spacing') {
+      --v-typography-#{$name}-letter-spacing: #{map-get($props, 'letter-spacing')};
+    }
+    @if map-has-key($props, 'text-transform') {
+      --v-typography-#{$name}-text-transform: #{map-get($props, 'text-transform')};
+    }
+  }
+  
+  // Espaciado
+  @each $size, $value in $spacers {
+    --v-spacer-#{$size}: #{$value};
+  }
+  
+  // Sombras
+  --v-box-shadow-0: #{$box-shadow-0};
+  --v-box-shadow-1: #{$box-shadow-1};
+  --v-box-shadow-2: #{$box-shadow-2};
+  --v-box-shadow-3: #{$box-shadow-3};
+  --v-box-shadow-4: #{$box-shadow-4};
+  --v-box-shadow-5: #{$box-shadow-5};
+  
+  // Transiciones
+  --v-transition: #{$transition};
+  --v-transition-slow: #{$transition-slow};
+  --v-transition-fast: #{$transition-fast};
+  
+  // Z-index
+  --v-z-index-dropdown: #{$z-index-dropdown};
+  --v-z-index-sticky: #{$z-index-sticky};
+  --v-z-index-fixed: #{$z-index-fixed};
+  --v-z-index-modal-backdrop: #{$z-index-modal-backdrop};
+  --v-z-index-modal: #{$z-index-modal};
+  --v-z-index-popover: #{$z-index-popover};
+  --v-z-index-tooltip: #{$z-index-tooltip};
+  
+  // Bordes
+  --v-border-radius-root: #{$border-radius-root};
+  --v-border-radius-sm: #{$border-radius-sm};
+  --v-border-radius-md: #{$border-radius-md};
+  --v-border-radius-lg: #{$border-radius-lg};
+  --v-border-radius-xl: #{$border-radius-xl};
+  --v-border-radius-pill: #{$border-radius-pill};
+  --v-border-width: #{$border-width};
+  --v-border-style: #{$border-style};
+  --v-border-color: #{$border-color};
+}
+
+// Estilos base
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  color: #333;
+}
+
+// Clases de utilidad
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// Transiciones suaves
+a, button {
+  transition: all 0.3s ease;
+}
+
+// Ajustes de accesibilidad
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Estilos para enlaces
+a {
+  color: inherit;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Clases de ayuda para márgenes y rellenos
+.mt-10 { margin-top: 10px; }
+.mb-10 { margin-bottom: 10px; }
+.ml-10 { margin-left: 10px; }
+.mr-10 { margin-right: 10px; }
+.pt-10 { padding-top: 10px; }
+.pb-10 { padding-bottom: 10px; }
+.pl-10 { padding-left: 10px; }
+.pr-10 { padding-right: 10px; }
+
+// Estilos para botones
+.v-btn {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 500;
+  
+  &--size-large {
+    font-size: 1rem;
+    padding: 0 24px;
+    height: 48px;
+  }
+  
+  &--size-small {
+    font-size: 0.8125rem;
+    padding: 0 16px;
+    height: 36px;
+  }
+}
+
+// Ajustes para tarjetas
+.v-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  
+  &--hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+  }
+}
+
+// Ajustes para formularios
+.v-field {
+  &__outline {
+    &::before, &::after {
+      border-color: rgba(0, 0, 0, 0.12) !important;
+    }
+  }
+  
+  &--focused {
+    .v-field__outline::after {
+      border-color: var(--v-primary-base) !important;
+    }
+  }
+}
+
+// Animaciones
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+// Media queries responsivas
+@media (max-width: 960px) {
+  .text-md-center {
+    text-align: center !important;
+  }
+  
+  .text-md-left {
+    text-align: left !important;
+  }
+  
+  .text-md-right {
+    text-align: right !important;
+  }
+}
+
+// Clases de utilidad para iconos
+.icon-large {
+  font-size: 2.5rem !important;
+  margin-bottom: 1rem;
+}
+
+.icon-medium {
+  font-size: 1.5rem !important;
+  margin-right: 0.5rem;
+}
+
+.icon-small {
+  font-size: 1rem !important;
+}
+
+// Ajustes para la barra de navegación
+.v-app-bar {
+  backdrop-filter: blur(10px);
+  background-color: rgba(var(--v-theme-surface), 0.8) !important;
+}
+
+// Ajustes para el footer
+.v-footer {
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    
+    &:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Clase para secciones
+.section {
+  padding: 80px 0;
+  
+  &-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--v-primary-base);
+    }
+    
+    &.text-center::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+// Ajustes para el modo oscuro
+.v-theme--dark {
+  .v-field {
+    &__outline {
+      &::before, &::after {
+        border-color: rgba(255, 255, 255, 0.12) !important;
+      }
+    }
+  }
+}
