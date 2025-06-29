@@ -260,6 +260,12 @@ const otherSkills = [
     color: 'primary',
     description: 'Herramienta de construcción de frontend'
   },
+  {
+    name: 'Pinia y Vuex', 
+    icon: 'fa-brands fa-raspberry-pi', 
+    color: 'blue-darken-2',
+    description: 'Gestor de estado para Vue.js'
+  },
   { 
     name: 'NPM', 
     icon: 'fab fa-npm', 
