@@ -11,7 +11,7 @@
         <v-row align="center" class="text-white">
           <v-col cols="12" md="6" class="text-center text-md-left">
             <h1 class="text-h3 text-md-h2 font-weight-bold mb-4">
-              Hola, soy <span class="text-secondary">Tu Nombre</span>
+              Hola, soy <span class="text-secondary">Bryan Alegria</span>
             </h1>
             <h2 class="text-h5 text-md-h4 mb-6">
               Desarrollador Full Stack
@@ -40,15 +40,11 @@
               </v-btn>
             </div>
           </v-col>
-          <v-col cols="12" md="6" class="d-none d-md-flex justify-center">
+          <!--<v-col cols="12" md="6" class="d-none d-md-flex justify-center">
             <v-avatar size="400" class="elevation-12">
-              <v-img
-                src="https://via.placeholder.com/400"
-                alt="Tu Foto"
-                cover
-              ></v-img>
+              <i class="fa-solid fa-user-tie" style="font-size: 250px; color: white"></i>
             </v-avatar>
-          </v-col>
+          </v-col>-->
         </v-row>
       </v-container>
     </v-sheet>
@@ -61,11 +57,11 @@
             <h2 class="text-h4 font-weight-bold mb-4">Sobre Mí</h2>
             <v-divider class="mx-auto" width="100" color="primary"></v-divider>
           </v-col>
-          <v-col cols="12" md="8" class="text-center">
+          <v-col cols="12" md="8" class="text-justify">
             <p class="text-body-1 mb-6">
-              Soy un desarrollador Full Stack con más de X años de experiencia en el desarrollo de aplicaciones web.
-              Me especializo en tecnologías como Vue.js, Node.js y bases de datos relacionales y no relacionales.
-              Me apasiona crear soluciones limpias, eficientes y escalables que resuelvan problemas reales.
+              Desarrollador backend con más de 3 años de experiencia utilizando Laravel y MySQL. 
+              Cuento con ambientes "stage" de los proyectos en los que colaboré. 
+              También tengo experiencia en frontend con Vue.js y actualmente estoy retomando conocimientos en Java.
             </p>
             <v-btn
               color="primary"
@@ -122,9 +118,9 @@
 
 <script setup>
 const skills = [
-  { name: 'Vue.js', icon: 'fab fa-vuejs', color: 'success' },
-  { name: 'Node.js', icon: 'fab fa-node-js', color: 'success' },
+  { name: 'PHP', icon: 'fab fa-php', color: 'primary' },
   { name: 'JavaScript', icon: 'fab fa-js', color: 'warning' },
+  { name: 'Vue.js', icon: 'fab fa-vuejs', color: 'success' },
   { name: 'HTML5', icon: 'fab fa-html5', color: 'orange' },
   { name: 'CSS3', icon: 'fab fa-css3-alt', color: 'info' },
   { name: 'Git', icon: 'fab fa-git-alt', color: 'grey-darken-3' },

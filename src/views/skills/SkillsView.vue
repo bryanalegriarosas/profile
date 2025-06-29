@@ -3,14 +3,14 @@
     <!-- Hero Section -->
     <v-sheet
       color="primary"
-      class="d-flex align-center justify-center py-16"
-      min-height="300"
+      class="d-flex align-center justify-center py-8"
+      min-height="100"
       rounded="0"
     >
       <v-container>
         <v-row>
           <v-col cols="12" class="text-center text-white">
-            <h1 class="text-h3 text-md-h2 font-weight-bold mb-4">Mis Habilidades</h1>
+            <h1 class="text-h3 text-md-h2 font-weight-bold mb-2">Mis Habilidades</h1>
             <p class="text-h6 font-weight-regular">Tecnologías y herramientas que utilizo</p>
           </v-col>
         </v-row>
@@ -18,162 +18,323 @@
     </v-sheet>
 
     <!-- Skills Section -->
-    <v-container class="py-16">
-      <!-- Frontend Skills -->
-      <v-row class="mb-10">
-        <v-col cols="12" class="text-center mb-8">
-          <v-icon size="60" color="primary" class="mb-4">fas fa-laptop-code</v-icon>
-          <h2 class="text-h4 font-weight-bold mb-4">Frontend</h2>
-          <v-divider class="mx-auto" width="100" color="primary"></v-divider>
-        </v-col>
-        <v-col
-          v-for="(skill, i) in frontendSkills"
-          :key="'front-'+i"
-          cols="6"
-          sm="4"
-          md="3"
-          lg="2"
-          class="text-center"
-        >
-          <v-card variant="flat" class="h-100 pa-4" hover>
-            <v-avatar size="80" class="mb-4 bg-grey-lighten-4">
-              <v-icon size="40" :color="skill.color">
-                {{ skill.icon }}
-              </v-icon>
-            </v-avatar>
-            <h3 class="text-subtitle-1 font-weight-medium mb-2">
-              {{ skill.name }}
-            </h3>
-            <v-rating
-              v-model="skill.level"
-              color="amber"
-              size="small"
-              readonly
-              half-increments
-              density="compact"
-            ></v-rating>
-          </v-card>
-        </v-col>
-      </v-row>
+    <v-container class="py-4">
+      <!-- Categories Navigation -->
+      <v-tabs
+        v-model="activeTab"
+        grow
+        color="primary"
+        class="mb-6"
+        :show-arrows="true"
+        center-active
+      >
+        <v-tab value="frontend">
+          <v-icon start>fas fa-laptop-code</v-icon>
+          Frontend
+        </v-tab>
+        <v-tab value="backend">
+          <v-icon start>fas fa-server</v-icon>
+          Backend
+        </v-tab>
+        <v-tab value="tools">
+          <v-icon start>fas fa-tools</v-icon>
+          Herramientas
+        </v-tab>
+      </v-tabs>
 
-      <!-- Backend Skills -->
-      <v-row class="mb-10">
-        <v-col cols="12" class="text-center mb-8">
-          <v-icon size="60" color="primary" class="mb-4">mdi-server</v-icon>
-          <h2 class="text-h4 font-weight-bold mb-4">Backend</h2>
-          <v-divider class="mx-auto" width="100" color="primary"></v-divider>
-        </v-col>
-        <v-col
-          v-for="(skill, i) in backendSkills"
-          :key="'back-'+i"
-          cols="6"
-          sm="4"
-          md="3"
-          lg="2"
-          class="text-center"
-        >
-          <v-card variant="flat" class="h-100 pa-4" hover>
-            <v-avatar size="80" class="mb-4 bg-grey-lighten-4">
-              <v-icon size="40" :color="skill.color">
-                {{ skill.icon }}
-              </v-icon>
-            </v-avatar>
-            <h3 class="text-subtitle-1 font-weight-medium mb-2">
-              {{ skill.name }}
-            </h3>
-            <v-rating
-              v-model="skill.level"
-              color="amber"
-              size="small"
-              readonly
-              half-increments
-              density="compact"
-            ></v-rating>
-          </v-card>
-        </v-col>
-      </v-row>
+      <v-window v-model="activeTab" class="elevation-1 rounded-lg">
+        <!-- Frontend Skills -->
+        <v-window-item value="frontend">
+          <v-list lines="two" class="pa-0">
+            <v-list-subheader class="text-h6 font-weight-bold bg-grey-lighten-4">
+              <v-icon icon="fas fa-laptop-code" class="me-2"></v-icon>
+              Habilidades de Frontend
+            </v-list-subheader>
+            <v-list-item
+              v-for="(skill, i) in frontendSkills"
+              :key="'front-' + i"
+              :title="skill.name"
+              :subtitle="skill.description || ''"
+              class="py-3"
+            >
+              <template v-slot:prepend>
+                <v-avatar :color="skill.color" size="50" class="me-4">
+                  <v-icon :icon="skill.icon" size="24" color="white"></v-icon>
+                </v-avatar>
+              </template>
+            </v-list-item>
+          </v-list>
+        </v-window-item>
 
-      <!-- Tools & Other Skills -->
-      <v-row>
-        <v-col cols="12" class="text-center mb-8">
-          <v-icon size="60" color="primary" class="mb-4">mdi-tools</v-icon>
-          <h2 class="text-h4 font-weight-bold mb-4">Herramientas y Otros</h2>
-          <v-divider class="mx-auto" width="100" color="primary"></v-divider>
-        </v-col>
-        <v-col
-          v-for="(skill, i) in otherSkills"
-          :key="'other-'+i"
-          cols="6"
-          sm="4"
-          md="3"
-          lg="2"
-          class="text-center"
-        >
-          <v-card variant="flat" class="h-100 pa-4" hover>
-            <v-avatar size="80" class="mb-4 bg-grey-lighten-4">
-              <v-icon size="40" :color="skill.color">
-                {{ skill.icon }}
-              </v-icon>
-            </v-avatar>
-            <h3 class="text-subtitle-1 font-weight-medium mb-2">
-              {{ skill.name }}
-            </h3>
-            <v-rating
-              v-model="skill.level"
-              color="amber"
-              size="small"
-              readonly
-              half-increments
-              density="compact"
-            ></v-rating>
-          </v-card>
-        </v-col>
-      </v-row>
+        <!-- Backend Skills -->
+        <v-window-item value="backend">
+          <v-list lines="two" class="pa-0">
+            <v-list-subheader class="text-h6 font-weight-bold bg-grey-lighten-4">
+              <v-icon icon="fas fa-server" class="me-2"></v-icon>
+              Habilidades de Backend
+            </v-list-subheader>
+            <v-list-item
+              v-for="(skill, i) in backendSkills"
+              :key="'back-' + i"
+              :title="skill.name"
+              :subtitle="skill.description || ''"
+              class="py-3"
+            >
+              <template v-slot:prepend>
+                <v-avatar :color="skill.color" size="50" class="me-4">
+                  <v-icon :icon="skill.icon" size="24" color="white"></v-icon>
+                </v-avatar>
+              </template>
+            </v-list-item>
+          </v-list>
+        </v-window-item>
+
+        <!-- Tools & Other Skills -->
+        <v-window-item value="tools">
+          <v-list lines="two" class="pa-0">
+            <v-list-subheader class="text-h6 font-weight-bold bg-grey-lighten-4">
+              <v-icon icon="fas fa-tools" class="me-2"></v-icon>
+              Herramientas
+            </v-list-subheader>
+            <v-list-item
+              v-for="(skill, i) in otherSkills"
+              :key="'other-' + i"
+              :title="skill.name"
+              :subtitle="skill.description || ''"
+              class="py-3"
+            >
+              <template v-slot:prepend>
+                <v-avatar :color="skill.color" size="50" class="me-4">
+                  <v-icon :icon="skill.icon" size="24" color="white"></v-icon>
+                </v-avatar>
+              </template>
+            </v-list-item>
+          </v-list>
+        </v-window-item>
+      </v-window>
     </v-container>
   </div>
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
+
+const activeTab = ref('frontend');
+
 const frontendSkills = [
-  { name: 'HTML5', icon: 'fab fa-html5', color: 'orange', level: 4.5 },
-  { name: 'CSS3', icon: 'fab fa-css3-alt', color: 'blue', level: 4.5 },
-  { name: 'JavaScript', icon: 'fab fa-js', color: 'warning', level: 4 },
-  { name: 'Vue.js', icon: 'fab fa-vuejs', color: 'success', level: 4.5 },
-  { name: 'React', icon: 'fab fa-react', color: 'info', level: 4 },
-  { name: 'Vuetify', icon: 'fas fa-palette', color: 'primary', level: 4.5 },
-  { name: 'Bootstrap', icon: 'fab fa-bootstrap', color: 'purple', level: 4 },
-  { name: 'Sass/SCSS', icon: 'fab fa-sass', color: 'pink', level: 4 },
+{ 
+    name: 'JavaScript', 
+    icon: 'fab fa-js', 
+    color: 'yellow-darken-2',
+    description: 'Programación del lado del cliente'
+  },
+  { 
+    name: 'Vue.js', 
+    icon: 'fab fa-vuejs', 
+    color: 'green',
+    description: 'Desarrollo de aplicaciones SPA'
+  },
+  { 
+    name: 'TypeScript', 
+    icon: 'fab fa-js', 
+    color: 'blue-darken-2',
+    description: 'Lenguaje de programación para interfaces de usuario'
+  },
+  { 
+    name: 'Vuetify', 
+    icon: 'fas fa-palette', 
+    color: 'light-blue',
+    description: 'Framework de UI para Vue.js'
+  },
+  {
+    name: 'Bootstrap', 
+    icon: 'fab fa-bootstrap', 
+    color: 'blue',
+    description: 'Framework de UI para desarrollo web'
+  },
+  { 
+    name: 'Sass/SCSS', 
+    icon: 'fab fa-sass', 
+    color: 'blue',
+    description: 'Preprocesador de CSS'
+  },
+  { 
+    name: 'HTML5', 
+    icon: 'fab fa-html5', 
+    color: 'orange',
+    description: 'Maquetación web semántica y accesible'
+  },
+  { 
+    name: 'CSS3', 
+    icon: 'fab fa-css3-alt', 
+    color: 'blue',
+    description: 'Estilos, animaciones y diseño responsivo'
+  },
 ];
 
 const backendSkills = [
-  { name: 'Node.js', icon: 'fab fa-node-js', color: 'success', level: 4.5 },
-  { name: 'Express', icon: 'fas fa-server', color: 'grey-darken-3', level: 4 },
-  { name: 'Python', icon: 'fab fa-python', color: 'blue', level: 3.5 },
-  { name: 'Django', icon: 'fab fa-python', color: 'green-darken-2', level: 3 },
-  { name: 'MongoDB', icon: 'fas fa-database', color: 'green', level: 3.5 },
-  { name: 'PostgreSQL', icon: 'fas fa-database', color: 'blue', level: 4 },
-  { name: 'RESTful APIs', icon: 'fas fa-code', color: 'teal', level: 4 },
-  { name: 'GraphQL', icon: 'fas fa-project-diagram', color: 'pink', level: 3.5 },
+  { 
+    name: 'PHP', 
+    icon: 'fab fa-php', 
+    color: 'blue-darken-2',
+    description: 'Lenguaje de programación para desarrollo web'
+  },
+  { 
+    name: 'Laravel', 
+    icon: 'fa-brands fa-laravel', 
+    color: 'red-darken-1',
+    description: 'Framework para aplicaciones web PHP'
+  },
+  { 
+    name: 'MySQL', 
+    icon: 'fas fa-database', 
+    color: 'blue-darken-2',
+    description: 'Base de datos relacional'
+  },
+  { 
+    name: 'PostgreSQL', 
+    icon: 'fas fa-database', 
+    color: 'blue-darken-2',
+    description: 'Base de datos relacional'
+  },
+  { 
+    name: 'MariaDB', 
+    icon: 'fas fa-database', 
+    color: 'blue-darken-2',
+    description: 'Base de datos relacional'
+  },
+  { 
+    name: 'SQL', 
+    icon: 'fas fa-database', 
+    color: 'blue-grey',
+    description: 'Lenguaje de consulta estructurada'
+  },
+  { 
+    name: 'Java', 
+    icon: 'fab fa-java', 
+    color: 'green-darken-2',
+    description: 'Lenguaje de programación versátil'
+  },
 ];
 
 const otherSkills = [
-  { name: 'Git', icon: 'fab fa-git-alt', color: 'orange-darken-2', level: 4.5 },
-  { name: 'Docker', icon: 'fab fa-docker', color: 'info', level: 3.5 },
-  { name: 'AWS', icon: 'fab fa-aws', color: 'amber', level: 3 },
-  { name: 'Firebase', icon: 'fas fa-fire', color: 'orange', level: 3.5 },
-  { name: 'Figma', icon: 'fab fa-figma', color: 'purple', level: 3.5 },
-  { name: 'Linux', icon: 'fab fa-linux', color: 'grey-darken-3', level: 4 },
-  { name: 'CI/CD', icon: 'fas fa-code-branch', color: 'blue-grey', level: 3.5 },
-  { name: 'Agile/Scrum', icon: 'fas fa-users', color: 'green', level: 4 },
+  { 
+    name: 'Docker', 
+    icon: 'fab fa-docker', 
+    color: 'info',
+    description: 'Contenedores de aplicaciones'
+  },
+  { 
+    name: 'Git', 
+    icon: 'fab fa-git-alt', 
+    color: 'orange-darken-2',
+    description: 'Control de versiones distribuido'
+  },
+  { 
+    name: 'GitHub', 
+    icon: 'fab fa-github', 
+    color: 'black',
+    description: 'Control de versiones distribuido'
+  },
+  {
+    name: 'GitLab', 
+    icon: 'fab fa-gitlab', 
+    color: 'orange-darken-2',
+    description: 'Control de versiones distribuido'
+  },
+  { 
+    name: 'RESTful APIs', 
+    icon: 'fas fa-code', 
+    color: 'teal',
+    description: 'Diseño e implementación de APIs REST'
+  },
+  { 
+    name: 'Linux', 
+    icon: 'fab fa-linux', 
+    color: 'red-darken-2',
+    description: 'Sistema operativo y línea de comandos'
+  },
+  { 
+    name: 'Vite', 
+    icon: 'fa-brands fa-vuejs', 
+    color: 'primary',
+    description: 'Herramienta de construcción de frontend'
+  },
+  { 
+    name: 'NPM', 
+    icon: 'fab fa-npm', 
+    color: 'amber',
+    description: 'Gestor de paquetes de Node.js'
+  },
+  { 
+    name: 'Composer', 
+    icon: 'fa-solid fa-gear', 
+    color: 'purple',
+    description: 'Gestor de dependencias para PHP'
+  },
+  {
+    name: 'Jira', 
+    icon: 'fab fa-jira', 
+    color: 'blue-darken-2',
+    description: 'Gestor de proyectos'
+  },
+  {
+    name: 'Stripe API', 
+    icon: 'fab fa-stripe', 
+    color: 'cyan-darken-2',
+    description: 'Gestor de pagos'
+  },
+  {
+    name: 'PayPal API', 
+    icon: 'fab fa-paypal', 
+    color: 'green-darken-2',
+    description: 'Gestor de pagos'
+  },
 ];
+
+onMounted(() => {
+  window.scrollTo(0, 0);
+});
 </script>
 
 <style scoped>
-.v-card {
-  transition: transform 0.3s ease;
+.skills {
+  min-height: 100vh;
 }
 
-.v-card:hover {
-  transform: translateY(-5px);
+.v-list-item {
+  transition: all 0.3s ease;
+}
+
+.v-list-item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  transform: translateX(5px);
+}
+
+/* Ajustes para móviles */
+@media (max-width: 600px) {
+  .v-tab {
+    min-width: auto;
+    font-size: 0.7rem;
+    padding: 0 8px;
+  }
+  
+  .v-tab .v-icon {
+    margin-right: 4px;
+  }
+  
+  .v-list-item {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  
+  .v-list-item__prepend {
+    margin-right: 12px !important;
+  }
+  
+  .v-avatar {
+    width: 40px !important;
+    height: 40px !important;
+  }
 }
 </style>
