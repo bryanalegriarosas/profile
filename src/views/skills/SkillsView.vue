@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <v-sheet
       color="primary"
-      class="d-flex align-center justify-center py-8"
+      class="d-flex align-center justify-center py-4"
       min-height="100"
       rounded="0"
     >

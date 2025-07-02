@@ -40,11 +40,11 @@
               </v-btn>
             </div>
           </v-col>
-          <!--<v-col cols="12" md="6" class="d-none d-md-flex justify-center">
+          <v-col cols="12" md="6" class="d-none d-md-flex justify-center">
             <v-avatar size="400" class="elevation-12">
-              <i class="fa-solid fa-user-tie" style="font-size: 250px; color: white"></i>
+              <v-img src="/img/my_photo.jpg" alt="Bryan Alegria" height="100%" />
             </v-avatar>
-          </v-col>-->
+          </v-col>
         </v-row>
       </v-container>
     </v-sheet>

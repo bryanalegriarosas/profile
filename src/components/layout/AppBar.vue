@@ -7,7 +7,7 @@
     <v-toolbar-title class="text-h5 font-weight-bold d-flex align-center">
       <v-icon icon="fas fa-code" class="me-2"></v-icon>
       <router-link to="/" class="text-white text-decoration-none">
-        Mi Portafolio
+        <span class="ms-2">Mi Portafolio</span>
       </router-link>
     </v-toolbar-title>
 
