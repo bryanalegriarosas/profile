@@ -4,7 +4,7 @@
     <v-sheet
       color="primary"
       class="d-flex align-center justify-center"
-      min-height="90vh"
+      min-height="100"
       rounded="0"
     >
       <v-container>
