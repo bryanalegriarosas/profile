@@ -59,9 +59,10 @@
           </v-col>
           <v-col cols="12" md="8" class="text-justify">
             <p class="text-body-1 mb-6">
-              Desarrollador backend con más de 3 años de experiencia utilizando Laravel y MySQL. 
-              Cuento con ambientes "stage" de los proyectos en los que colaboré. 
-              También tengo experiencia en frontend con Vue.js y actualmente estoy retomando conocimientos en Java.
+              Desarrollador Backend / Full Stack con más de 3 años de experiencia en el desarrollo de aplicaciones web escalables utilizando Laravel y Vue.js.
+              He trabajado en sistemas ERP, plataformas inmobiliarias y soluciones con integración de APIs externas, pasarelas de pago (Stripe, PayPal, Toku) y herramientas en tiempo real. Tengo experiencia en arquitecturas basadas en microservicios y entornos con Docker.
+              Actualmente trabajo como freelancer, combinando desarrollo web con soporte técnico, brindando mantenimiento de sistemas, optimización de aplicaciones y solución de incidencias.
+              Busco integrarme a un equipo donde pueda aportar soluciones sólidas y seguir creciendo profesionalmente.
             </p>
             <v-btn
               color="primary"

@@ -85,7 +85,8 @@
                   <div>
                     <h3 class="text-h5 font-weight-bold mb-1">{{ edu.degree }}</h3>
                     <div class="text-subtitle-1 font-weight-medium text-primary mb-1">{{ edu.institution }}</div>
-                    <div class="text-caption text-medium-emphasis mb-2">{{ edu.period }}</div>
+                    <div class="text-caption text-medium-emphasis mb-2">Periodo: {{ edu.period }}</div>
+                    <div v-if="edu.cedula" class="text-caption text-medium-emphasis">Cédula Profesional en México: <b>{{ edu.cedula }}</b></div>
                   </div>
                 </div>
               </v-timeline-item>
@@ -101,6 +102,19 @@
 import { onMounted } from "vue";
 
 const workExperience = [
+  {
+    position: 'Soporte Técnico y Desarrollo',
+    company: 'Freelance',
+    location: 'Villahermosa, Tabasco',
+    period: 'Jul 2025 - Actualidad',
+    current: true,
+    responsibilities: [
+      'Desarrollo y mantenimiento de aplicaciones web con Laravel y Vue.js.',
+      'Corrección de errores y optimización de rendimiento.',
+      'Soporte técnico y mantenimiento de equipos de cómputo.',
+      'Diagnóstico y resolución de incidencias en hardware y software.',
+    ]
+  }, 
   {
     position: 'Desarrollador Full Stack',
     company: 'Aplicaciones Creativas',
@@ -145,6 +159,7 @@ const education = [
     degree: 'Ingeniería en Sistemas Computacionales',
     institution: 'Instituto Tecnológico de Villahermosa',
     period: '2014 - 2019',
+    cedula: '15445035',
   },
   {
     degree: 'Informática',
